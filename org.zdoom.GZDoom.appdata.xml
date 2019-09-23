@@ -24,7 +24,7 @@
       GZDoom is a source port for the modern era, supporting current hardware and operating systems and sporting a vast array of user options. Make Doom your own again! 
     </p>
     <p>
-      In addition to Doom, ZDoom supports Heretic, Hexen, Strife, Chex Quest, and fan-created games like Harmony and Hacx. Meet the entire idTech 1 family!
+      In addition to Doom, GZDoom supports Heretic, Hexen, Strife, Chex Quest, and fan-created games like Harmony and Hacx. Meet the entire idTech 1 family!
     </p>
     <p>
       Experience mind-bending user-created mods, made possible by ZDoom's advanced mapping features and the new ZScript language. Or make a mod of your own! 
@@ -53,19 +53,19 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://i.imgur.com/d8vMYY6.png</image>
+      <image>https://raw.githubusercontent.com/flathub/org.zdoom.GZDoom/master/images/image_01.png</image>
       <caption>Strife screenshot</caption>
     </screenshot>
     <screenshot>
-      <image>https://i.imgur.com/lQ1BYlZ.png</image>
+      <image>https://raw.githubusercontent.com/flathub/org.zdoom.GZDoom/master/images/image_02.png</image>
       <caption>Doom screenshot</caption>
     </screenshot>
     <screenshot>
-      <image>https://i.imgur.com/dgtcHbc.png</image>
+      <image>https://raw.githubusercontent.com/flathub/org.zdoom.GZDoom/master/images/image_03.png</image>
       <caption>Heretic screenshot</caption>
     </screenshot>
     <screenshot>
-      <image>https://i.imgur.com/u5Wb5pw.png</image>
+      <image>https://raw.githubusercontent.com/flathub/org.zdoom.GZDoom/master/images/image_04.png</image>
       <caption>Hexen screenshot</caption>
     </screenshot>
   </screenshots>
