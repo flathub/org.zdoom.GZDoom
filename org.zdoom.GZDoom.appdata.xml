@@ -73,6 +73,11 @@
   <releases>
     <release version="4.2.1" date="2019-09-11">
       <description>
+        <p>Updated release package to GZDoom 4.2.2</p>
+      </description>
+    </release>
+    <release version="4.2.1" date="2019-09-11">
+      <description>
         <p>Updated release package to GZDoom 4.2.1 and made many minor changes for Flathub.</p>
       </description>
     </release>

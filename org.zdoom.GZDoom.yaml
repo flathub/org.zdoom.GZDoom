@@ -10,6 +10,7 @@ finish-args:
 - --socket=fallback-x11
 - --socket=x11
 - --share=ipc
+- --share=network
 - --socket=pulseaudio
 
 # Based on GZDoom
@@ -68,8 +69,8 @@ modules:
   sources:
   - type: git
     url: https://github.com/coelckers/gzdoom.git
-    tag: g4.2.1
-    commit: f586196f28ae099255ea15e9e69ac19b218f5cdf
+    tag: g4.2.2
+    commit: 2d62608d55ffdead41aafa20fae855fc911013a7
   - type: file
     url: https://github.com/coelckers/gzdoom/raw/g4.2.1/soundfont/gzdoom.sf2
     sha256: fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869
