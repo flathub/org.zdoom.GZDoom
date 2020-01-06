@@ -49,8 +49,8 @@ modules:
   sources:
   - type: git
     url: https://github.com/coelckers/gzdoom.git
-    tag: g4.2.4
-    commit: 03e6c1ac20cb2280a00bd89793fd4d3acc36ecd5
+    tag: g4.3.1
+    commit: 25c74c23bd092e52bc1fe0d7808a247e4d88b33f
   - type: file
     url: https://github.com/coelckers/gzdoom/raw/g4.2.4/soundfont/gzdoom.sf2
     sha256: fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869
