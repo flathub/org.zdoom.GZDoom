@@ -43,16 +43,15 @@ modules:
   buildsystem: cmake-ninja
   config-opts:
   - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-  # Required when targeting 32-bit x86
   # Required for 19.08 using GCC C++ 9.2
-  - -DCMAKE_CXX_FLAGS=-msse3 -lrt
+  - -DCMAKE_CXX_FLAGS=-lrt
   sources:
   - type: git
     url: https://github.com/coelckers/gzdoom.git
-    tag: g4.3.2
-    commit: 97625090848a5abcd81a200bc355e65e0a2dfa7d
+    tag: g4.3.3
+    commit: a3b0f214a4ee42bb6ada82286bad8471f7f59798
   - type: file
-    url: https://github.com/coelckers/gzdoom/raw/g4.3.2/soundfont/gzdoom.sf2
+    url: https://github.com/coelckers/gzdoom/raw/g4.3.3/soundfont/gzdoom.sf2
     sha256: fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869
   - type: patch
     path: description.patch
