@@ -1,0 +1,98 @@
+diff --git a/src/posix/sdl/crashcatcher.c b/src/posix/sdl/crashcatcher.c
+index be0e8f599..e52e7f3c1 100644
+--- a/src/posix/sdl/crashcatcher.c
++++ b/src/posix/sdl/crashcatcher.c
+@@ -366,9 +366,7 @@ static void crash_handler(const char *logfile)
+ 		const char *str;
+ 		char buf[512];
+ 
+-		if((str=getenv("KDE_FULL_SESSION")) && strcmp(str, "true") == 0)
+-			snprintf(buf, sizeof(buf), "kdialog --title \"Very Fatal Error\" --textbox \"%s\" 800 600", logfile);
+-		else if((str=getenv("GNOME_DESKTOP_SESSION_ID")) && str[0] != '\0')
++		if((str=getenv("GNOME_DESKTOP_SESSION_ID")) && str[0] != '\0')
+ 			snprintf(buf, sizeof(buf), "gxmessage -buttons \"Okay:0\" -geometry 800x600 -title \"Very Fatal Error\" -center -file \"%s\"", logfile);
+ 		else
+ 			snprintf(buf, sizeof(buf), "xmessage -buttons \"Okay:0\" -center -file \"%s\"", logfile);
+diff --git a/src/posix/sdl/i_system.cpp b/src/posix/sdl/i_system.cpp
+index f96d15686..f70bd7587 100644
+--- a/src/posix/sdl/i_system.cpp
++++ b/src/posix/sdl/i_system.cpp
+@@ -113,16 +113,9 @@ void Linux_I_FatalError(const char* errortext)
+ 	// Close window or exit fullscreen and release mouse capture
+ 	SDL_Quit();
+ 
+-	const char *str;
+-	if((str=getenv("KDE_FULL_SESSION")) && strcmp(str, "true") == 0)
+-	{
+-		FString cmd;
+-		cmd << "kdialog --title \"" GAMENAME " " << GetVersionString()
+-			<< "\" --msgbox \"" << errortext << "\"";
+-		popen(cmd, "r");
+-	}
++
+ #ifndef NO_GTK
+-	else if (I_GtkAvailable())
++	if (I_GtkAvailable())
+ 	{
+ 		I_ShowFatalError_Gtk(errortext);
+ 	}
+@@ -196,59 +189,6 @@ int I_PickIWad (WadStuff *wads, int numwads, bool showwin, int defaultiwad)
+ 		return defaultiwad;
+ 	}
+ 
+-#ifndef __APPLE__
+-	const char *str;
+-	if((str=getenv("KDE_FULL_SESSION")) && strcmp(str, "true") == 0)
+-	{
+-		FString cmd("kdialog --title \"" GAMENAME " ");
+-		cmd << GetVersionString() << ": Select an IWAD to use\""
+-					" --menu \"" GAMENAME " found more than one IWAD\n"
+-					"Select from the list below to determine which one to use:\"";
+-
+-		for(i = 0; i < numwads; ++i)
+-		{
+-			const char *filepart = strrchr(wads[i].Path, '/');
+-			if(filepart == NULL)
+-				filepart = wads[i].Path;
+-			else
+-				filepart++;
+-			// Menu entries are specified in "tag" "item" pairs, where when a
+-			// particular item is selected (and the Okay button clicked), its
+-			// corresponding tag is printed to stdout for identification.
+-			cmd.AppendFormat(" \"%d\" \"%s (%s)\"", i, wads[i].Name.GetChars(), filepart);
+-		}
+-
+-		if(defaultiwad >= 0 && defaultiwad < numwads)
+-		{
+-			const char *filepart = strrchr(wads[defaultiwad].Path, '/');
+-			if(filepart == NULL)
+-				filepart = wads[defaultiwad].Path;
+-			else
+-				filepart++;
+-			cmd.AppendFormat(" --default \"%s (%s)\"", wads[defaultiwad].Name.GetChars(), filepart);
+-		}
+-
+-		FILE *f = popen(cmd, "r");
+-		if(f != NULL)
+-		{
+-			char gotstr[16];
+-
+-			if(fgets(gotstr, sizeof(gotstr), f) == NULL ||
+-			   sscanf(gotstr, "%d", &i) != 1)
+-				i = -1;
+-
+-			// Exit status = 1 means the selection was canceled (either by
+-			// Cancel/Esc or the X button), not that there was an error running
+-			// the program. In that case, nothing was printed so fgets will
+-			// have failed. Other values can indicate an error running the app,
+-			// so fall back to whatever else can be used.
+-			int status = pclose(f);
+-			if(WIFEXITED(status) && (WEXITSTATUS(status) == 0 || WEXITSTATUS(status) == 1))
+-				return i;
+-		}
+-	}
+-#endif
+-
+ #ifndef NO_GTK
+ 	if (I_GtkAvailable())
+ 	{

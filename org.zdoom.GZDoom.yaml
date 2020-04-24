@@ -56,6 +56,8 @@ modules:
     sha256: fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869
   - type: patch
     path: description.patch
+  - type: patch
+    path: kde.patch
   - type: shell
     commands:
     - install -Dm 644 gzdoom.sf2 /app/share/sounds/sf2/gzdoom.sf2
