@@ -44,7 +44,8 @@ modules:
   config-opts:
   - -DCMAKE_BUILD_TYPE=RelWithDebInfo
   # Required for 19.08 using GCC C++ 9.2
-  - -DCMAKE_CXX_FLAGS=-lrt
+  # Required for ARM targets
+  - -DCMAKE_CXX_FLAGS=-lrt -ldl
   sources:
   - type: git
     url: https://github.com/coelckers/gzdoom.git
