@@ -41,6 +41,10 @@ modules:
   buildsystem: cmake-ninja
   config-opts:
   - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+  # Required for 19.08 using GCC C++ 9.2
+  # Required for ARM targets
+  - -DCMAKE_CXX_FLAGS=-lrt -ldl
+  - -DFLATPAK_BUNDLE=YES
   sources:
   - type: archive
     url: https://github.com/coelckers/ZMusic/archive/1.1.0.tar.gz
