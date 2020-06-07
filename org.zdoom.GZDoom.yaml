@@ -18,6 +18,9 @@ finish-args:
 - --env=DOOMWADDIR=/app/share/games/doom
 - --persist=.config/gzdoom
 
+# Simpler way of preventing KDE related errors
+- --env=KDE_FULL_SESSION=false
+
 cleanup:
 - /app/include
 - /app/lib/*.a
@@ -36,6 +39,20 @@ modules:
     url: https://github.com/FluidSynth/fluidsynth/archive/v1.1.11.tar.gz
     sha256: da8878ff374d12392eecf87e96bad8711b8e76a154c25a571dd8614d1af80de8
 
+
+# Music library behind zdoom
+- name: zmusic
+  buildsystem: cmake-ninja
+  config-opts:
+  - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+  # Required for 19.08 using GCC C++ 9.2
+  # Required for ARM targets
+  - -DCMAKE_CXX_FLAGS=-lrt -ldl
+  sources:
+  - type: archive
+    url: https://github.com/coelckers/ZMusic/archive/1.1.0.tar.gz
+    sha256: 69255ddb62ecb238474bc57e3f761a593006a22eef90c4e786ef613d9a643b3a
+
 # This builds both the application code and
 # the custom game data
 - name: gzdoom
@@ -48,8 +65,8 @@ modules:
   sources:
   - type: git
     url: https://github.com/coelckers/gzdoom.git
-    tag: g4.3.3
-    commit: a3b0f214a4ee42bb6ada82286bad8471f7f59798
+    tag: g4.4.0
+    commit: e98ef83837860c33720e827707d2cc0b4647ace6
   - type: file
     url: https://github.com/coelckers/gzdoom/raw/g4.3.3/soundfont/gzdoom.sf2
     sha256: fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869
@@ -57,8 +74,9 @@ modules:
   # https://forum.zdoom.org/viewtopic.php?f=15&t=68365&sid=884a41102b499f98ed9c76a62ee0e41d
   - type: patch
     path: description.patch
+  # Based on an upstream patch, that sadly didn't make it into the 4.4.0 release
   - type: patch
-    path: kde.patch
+    path: fixed-compilation-of-non-x86-targets.patch
   - type: shell
     commands:
     - install -Dm 644 gzdoom.sf2 /app/share/sounds/sf2/gzdoom.sf2
