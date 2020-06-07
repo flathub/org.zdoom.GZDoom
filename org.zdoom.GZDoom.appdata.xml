@@ -9,7 +9,7 @@
   <project_license>GPL-3.0</project_license>
 
   <developer_name>ZDoom team</developer_name>
-  <update_contact>gnome@kevindegeling.nl</update_contact>
+  <update_contact>eonfge@kevindegeling.nl</update_contact>
 
   <url type="homepage">https://zdoom.org/index</url>
   <url type="bugtracker">https://github.com/coelckers/gzdoom</url>
