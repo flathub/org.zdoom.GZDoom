@@ -74,6 +74,9 @@ modules:
   # https://forum.zdoom.org/viewtopic.php?f=15&t=68365&sid=884a41102b499f98ed9c76a62ee0e41d
   - type: patch
     path: description.patch
+  # Based on an upstream patch, that sadly didn't make it into the 4.4.0 release
+  - type: patch
+    path: fixed-compilation-of-non-x86-targets.patch
   - type: shell
     commands:
     - install -Dm 644 gzdoom.sf2 /app/share/sounds/sf2/gzdoom.sf2
