@@ -70,6 +70,16 @@
   </screenshots>
 
   <releases>
+    <release version="4.5.0" date="2020-10-31">
+      <description>
+        <p>Updated release package to GZDoom 4.5.0</p>
+      </description>
+    </release>
+    <release version="4.4.2" date="2020-06-16">
+      <description>
+        <p>Updated release package to GZDoom 4.4.2</p>
+      </description>
+    </release>
     <release version="4.4.1" date="2020-06-10">
       <description>
         <p>Updated release package to GZDoom 4.4.1</p>
