@@ -34,6 +34,15 @@ modules:
 # the warning messages you now get.
 - shared-modules/linux-audio/fluidsynth2.json
 
+- name: game-music-emu
+  buildsystem: cmake
+  config-opts:
+  - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+  sources:
+  - type: archive
+    url: https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-0.6.3.tar.gz
+    sha256: 626e8a104e0dadd10ef6519a67aca880c7b40f81471659f1935b61754e12fc7b
+
 # Music library behind zdoom
 - name: zmusic
   buildsystem: cmake-ninja
