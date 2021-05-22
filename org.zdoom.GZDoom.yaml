@@ -29,35 +29,7 @@ cleanup:
 
 modules:
 
-- name: mpg123
-  buildsystem: autotools
-  sources:
-  - type: archive
-    url: https://sourceforge.net/projects/mpg123/files/mpg123/1.27.2/mpg123-1.27.2.tar.bz2
-    sha256: 52f6ceb962c05db0c043bb27acf5a721381f5f356ac4610e5221f50293891b04
-
-- name: libsdnfile
-  buildsystem: cmake
-  config-opts:
-  - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-  - -DBUILD_SHARED_LIBS=ON
-  sources:
-  - type: archive
-    url: https://github.com/libsndfile/libsndfile/archive/refs/tags/1.0.31.tar.gz
-    sha256: 8cdee0acb06bb0a3c1a6ca524575643df8b1f3a55a0893b4dd9f829d08263785
-
-- name: openal
-  buildsystem: cmake
-  config-opts:
-  - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-  sources:
-  - type: archive
-    url: https://github.com/kcat/openal-soft/archive/refs/tags/1.21.1.tar.gz
-    sha256: 8ac17e4e3b32c1af3d5508acfffb838640669b4274606b7892aa796ca9d7467f
-
-# Upgrading to 2.2.x can only be done with ZMusic 1.1.8 which is not out yet
-# FluidSynth 2.2.x will also include a proper SDL2 backend which should resolve
-# the warning messages you now get.
+- shared-modules/linux-audio/libinstpatch.json
 - shared-modules/linux-audio/fluidsynth2.json
 
 - name: game-music-emu
@@ -74,6 +46,9 @@ modules:
   buildsystem: cmake-ninja
   config-opts:
   - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+  # Required with FluidSynth 2.2.x
+  # Should be fixed with ZMusic 1.1.8
+  - -DDYN_FLUIDSYNTH=OFF
   sources:
   - type: archive
     url: https://github.com/coelckers/ZMusic/archive/1.1.7.tar.gz
