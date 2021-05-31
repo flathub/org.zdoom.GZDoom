@@ -63,7 +63,7 @@ modules:
   - type: git
     url: https://github.com/eonfge/gzdoom.git
     branch: FlatpakBundleSupport2
-    commit: 5be68324b1816ebe67d1991304afe73df40b9317
+    commit: 7c35115abfbbc820ec228c120a9040f6f04e6feb
   - type: file
     url: https://github.com/coelckers/gzdoom/raw/g4.6.0/soundfont/gzdoom.sf2
     sha256: fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869
