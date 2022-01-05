@@ -54,7 +54,7 @@
         </p>
 
         <p>
-          With Flatpak, all file-access is restricted too ~/.var/app/org.zdoom.GZDoom/.config/gzdoom for privacy reasons. You'll have to manually place your IWADs and PWADS there, or you should use an application like Flatseal to give GZDoom additional permissions.
+          With Flatpak, all file-access is restricted to ~/.var/app/org.zdoom.GZDoom/.config/gzdoom for privacy reasons. You'll have to manually place your IWADs and PWADS there, or you should use an application like Flatseal to give GZDoom additional permissions.
         </p>
     </description>
 
