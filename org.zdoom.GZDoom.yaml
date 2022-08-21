@@ -38,6 +38,11 @@ modules:
   - type: archive
     url: https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-0.6.3.tar.gz
     sha256: 626e8a104e0dadd10ef6519a67aca880c7b40f81471659f1935b61754e12fc7b
+    x-checker-data:
+      type: anitya
+      project-id: 866
+      stable-only: true
+      url-template: https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-$version.tar.xz
 
 - shared-modules/gzdoom/gzdoom.json
 
