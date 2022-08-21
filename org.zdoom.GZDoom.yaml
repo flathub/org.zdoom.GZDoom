@@ -42,7 +42,7 @@ modules:
           type: anitya
           project-id: 866
           stable-only: true
-          url-template: https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-$version.tar.xz
+          url-template: https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-$version.tar.gz
 
   - shared-modules/gzdoom/gzdoom.json
 
