@@ -5,68 +5,68 @@ runtime-version: "21.08"
 command: gzdoom.sh
 
 finish-args:
-- --device=dri
-- --socket=x11
-- --share=ipc
-- --share=network
-- --socket=pulseaudio
+  - --device=dri
+  - --socket=x11
+  - --share=ipc
+  - --share=network
+  - --socket=pulseaudio
 
-# Based on GZDoom
-# We redirect the original ~/.config/gzdoom
-- --env=DOOMWADDIR=/app/share/games/doom
-- --persist=.config/gzdoom
+  # Based on GZDoom
+  # We redirect the original ~/.config/gzdoom
+  - --env=DOOMWADDIR=/app/share/games/doom
+  - --persist=.config/gzdoom
 
-# Simpler way of preventing KDE related errors
-- --env=KDE_FULL_SESSION=false
+  # Simpler way of preventing KDE related errors
+  - --env=KDE_FULL_SESSION=false
 
 cleanup:
-- /app/include
-- /app/lib/*.a
-- /app/lib/*.la
-- /app/lib/pkgconfig
+  - /app/include
+  - /app/lib/*.a
+  - /app/lib/*.la
+  - /app/lib/pkgconfig
 
 modules:
 
-- shared-modules/linux-audio/libinstpatch.json
-- shared-modules/linux-audio/fluidsynth2.json
+  - shared-modules/linux-audio/libinstpatch.json
+  - shared-modules/linux-audio/fluidsynth2.json
 
-- name: game-music-emu
-  buildsystem: cmake
-  config-opts:
-  - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-  sources:
-  - type: archive
-    url: https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-0.6.3.tar.gz
-    sha256: 626e8a104e0dadd10ef6519a67aca880c7b40f81471659f1935b61754e12fc7b
-    x-checker-data:
-      type: anitya
-      project-id: 866
-      stable-only: true
-      url-template: https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-$version.tar.xz
+  - name: game-music-emu
+    buildsystem: cmake
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    sources:
+      - type: archive
+        url: https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-0.6.3.tar.gz
+        sha256: 626e8a104e0dadd10ef6519a67aca880c7b40f81471659f1935b61754e12fc7b
+        x-checker-data:
+          type: anitya
+          project-id: 866
+          stable-only: true
+          url-template: https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-$version.tar.gz
 
-- shared-modules/gzdoom/gzdoom.json
+  - shared-modules/gzdoom/gzdoom.json
 
-- name: launcher
-  buildsystem: simple
-  sources:
-  - type: script
-    commands:
-    - gzdoom +fluid_patchset /app/share/sounds/sf2/gzdoom.sf2 -file lights.pk3 brightmaps.pk3 "$@"
-    dest-filename: gzdoom.sh
-  - type: file
-    path: org.zdoom.GZDoom.desktop
-  - type: file
-    path: org.zdoom.GZDoom.appdata.xml
-  - type: file
-    path: org.zdoom.GZDoom.48.png
-  - type: file
-    path: org.zdoom.GZDoom.64.png
-  - type: file
-    path: org.zdoom.GZDoom.128.png
-  build-commands:
-  - install -D gzdoom.sh /app/bin/gzdoom.sh
-  - install -Dm 644 org.zdoom.GZDoom.desktop -t /app/share/applications
-  - install -Dm 644 org.zdoom.GZDoom.appdata.xml -t /app/share/metainfo
-  - install -Dm 644 org.zdoom.GZDoom.48.png /app/share/icons/hicolor/48x48/apps/org.zdoom.GZDoom.png
-  - install -Dm 644 org.zdoom.GZDoom.64.png /app/share/icons/hicolor/64x64/apps/org.zdoom.GZDoom.png
-  - install -Dm 644 org.zdoom.GZDoom.128.png /app/share/icons/hicolor/128x128/apps/org.zdoom.GZDoom.png
+  - name: launcher
+    buildsystem: simple
+    sources:
+      - type: script
+        commands:
+          - gzdoom +fluid_patchset /app/share/sounds/sf2/gzdoom.sf2 -file lights.pk3 brightmaps.pk3 "$@"
+        dest-filename: gzdoom.sh
+      - type: file
+        path: org.zdoom.GZDoom.desktop
+      - type: file
+        path: org.zdoom.GZDoom.appdata.xml
+      - type: file
+        path: org.zdoom.GZDoom.48.png
+      - type: file
+        path: org.zdoom.GZDoom.64.png
+      - type: file
+        path: org.zdoom.GZDoom.128.png
+    build-commands:
+      - install -D gzdoom.sh /app/bin/gzdoom.sh
+      - install -Dm 644 org.zdoom.GZDoom.desktop -t /app/share/applications
+      - install -Dm 644 org.zdoom.GZDoom.appdata.xml -t /app/share/metainfo
+      - install -Dm 644 org.zdoom.GZDoom.48.png /app/share/icons/hicolor/48x48/apps/org.zdoom.GZDoom.png
+      - install -Dm 644 org.zdoom.GZDoom.64.png /app/share/icons/hicolor/64x64/apps/org.zdoom.GZDoom.png
+      - install -Dm 644 org.zdoom.GZDoom.128.png /app/share/icons/hicolor/128x128/apps/org.zdoom.GZDoom.png
