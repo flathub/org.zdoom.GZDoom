@@ -6,7 +6,8 @@ command: gzdoom.sh
 
 finish-args:
   - --device=dri
-  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
   - --share=ipc
   - --share=network
   - --socket=pulseaudio
