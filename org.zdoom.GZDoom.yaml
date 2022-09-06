@@ -1,12 +1,13 @@
 app-id: org.zdoom.GZDoom
 runtime: org.freedesktop.Platform
 sdk: org.freedesktop.Sdk
-runtime-version: "21.08"
+runtime-version: "22.08"
 command: gzdoom.sh
 
 finish-args:
   - --device=dri
-  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
   - --share=ipc
   - --share=network
   - --socket=pulseaudio
