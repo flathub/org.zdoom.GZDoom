@@ -16,6 +16,9 @@ finish-args:
   # We redirect the original ~/.config/gzdoom
   - --env=DOOMWADDIR=/app/share/games/doom
   - --persist=.config/gzdoom
+  
+  # Controller support on SteamDeck and such
+  - --device=all
 
   # Simpler way of preventing KDE related errors
   - --env=KDE_FULL_SESSION=false
