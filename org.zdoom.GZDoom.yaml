@@ -1,7 +1,7 @@
 app-id: org.zdoom.GZDoom
 runtime: org.freedesktop.Platform
 sdk: org.freedesktop.Sdk
-runtime-version: "22.08"
+runtime-version: "23.08"
 command: gzdoom.sh
 
 finish-args:
@@ -30,8 +30,6 @@ cleanup:
   - /app/lib/pkgconfig
 
 modules:
-
-  - shared-modules/SDL2/SDL2-no-libdecor.json
 
   - shared-modules/gzdoom/gzdoom.json
 
