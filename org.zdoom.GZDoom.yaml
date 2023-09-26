@@ -1,7 +1,7 @@
 app-id: org.zdoom.GZDoom
 runtime: org.freedesktop.Platform
 sdk: org.freedesktop.Sdk
-runtime-version: "22.08"
+runtime-version: "23.08"
 command: gzdoom.sh
 
 finish-args:
@@ -31,8 +31,6 @@ cleanup:
 
 modules:
 
-  - shared-modules/SDL2/SDL2-no-libdecor.json
-
   - shared-modules/gzdoom/gzdoom.json
 
   - name: launcher
@@ -40,7 +38,7 @@ modules:
     sources:
       - type: script
         commands:
-          - gzdoom +fluid_patchset /app/share/sounds/sf2/gzdoom.sf2 -file lights.pk3 brightmaps.pk3 "$@"
+          - gzdoom +fluid_patchset /app/share/sounds/sf2/gzdoom.sf2 "$@"
         dest-filename: gzdoom.sh
       - type: file
         path: org.zdoom.GZDoom.desktop
