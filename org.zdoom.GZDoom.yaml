@@ -38,7 +38,7 @@ modules:
     sources:
       - type: script
         commands:
-          - gzdoom +fluid_patchset /app/share/games/doom/soundfonts/gzdoom.sf2 "$@"
+          - exec gzdoom +fluid_patchset /app/share/games/doom/soundfonts/gzdoom.sf2 "$@"
         dest-filename: gzdoom.sh
       - type: file
         path: org.zdoom.GZDoom.desktop
