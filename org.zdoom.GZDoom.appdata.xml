@@ -16,6 +16,7 @@
     <url type="help">https://zdoom.org/wiki/Main_Page</url>
     <url type="faq">https://zdoom.org/about</url>
     <url type="contact">https://forum.zdoom.org/</url>
+    <url type="vcs-browser">https://github.com/ZDoom/gzdoom</url>
 
     <launchable type="desktop-id">org.zdoom.GZDoom.desktop</launchable>
 
@@ -76,6 +77,11 @@
             <caption>Hexen screenshot</caption>
         </screenshot>
     </screenshots>
+
+    <categories>
+        <category>Game</category>
+        <category>Shooter</category>
+    </categories>
 
     <releases>
         <release version="4.13.0" date="2024-10-12">
