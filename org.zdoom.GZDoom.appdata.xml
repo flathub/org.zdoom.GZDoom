@@ -84,6 +84,11 @@
     </categories>
 
     <releases>
+        <release version="4.13.2" date="2024-10-31">
+            <description>
+                <p>Updated release package to GZDoom 4.13.2</p>
+            </description>
+        </release>
         <release version="4.13.1" date="2024-10-20">
             <description>
                 <p>Updated release package to GZDoom 4.13.1</p>
