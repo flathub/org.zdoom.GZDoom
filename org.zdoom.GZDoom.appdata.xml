@@ -4,7 +4,7 @@
 <component type="desktop">
     <id>org.zdoom.GZDoom</id>
     <name>GZDoom</name>
-    <summary>Classic first-person-shooter engine for all classical Id games</summary>
+    <summary>Game engine for Classic Doom</summary>
     <metadata_license>CC0-1.0</metadata_license>
     <project_license>GPL-3.0</project_license>
 
@@ -60,13 +60,13 @@
     </description>
 
     <screenshots>
-        <screenshot type="default">
-            <image>https://raw.githubusercontent.com/flathub/org.zdoom.GZDoom/master/images/image_01.png</image>
-            <caption>Strife screenshot</caption>
-        </screenshot>
-        <screenshot>
+        <screenshot  type="default">
             <image>https://raw.githubusercontent.com/flathub/org.zdoom.GZDoom/master/images/image_02.png</image>
             <caption>Doom screenshot</caption>
+        </screenshot>
+        <screenshot>
+            <image>https://raw.githubusercontent.com/flathub/org.zdoom.GZDoom/master/images/image_01.png</image>
+            <caption>Strife screenshot</caption>
         </screenshot>
         <screenshot>
             <image>https://raw.githubusercontent.com/flathub/org.zdoom.GZDoom/master/images/image_03.png</image>
@@ -82,6 +82,11 @@
         <category>Game</category>
         <category>Shooter</category>
     </categories>
+    
+    <branding>
+        <color type="primary" scheme_preference="light">#999999</color>
+        <color type="primary" scheme_preference="dark">#222222</color>
+    </branding>
 
     <releases>
         <release version="4.14.0" date="2024-12-17">
