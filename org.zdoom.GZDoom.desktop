@@ -5,7 +5,6 @@ Exec=gzdoom.sh
 Icon=org.zdoom.GZDoom
 Name=GZDoom
 StartupNotify=true
-PrefersNonDefaultGPU=true
 Terminal=false
 Type=Application
 Keywords=Doom;Heretic;Hexen;strife;pwad;iwad;first;person;shooter;
