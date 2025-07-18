@@ -40,20 +40,5 @@ modules:
         commands:
           - exec gzdoom +fluid_patchset /app/share/games/doom/soundfonts/gzdoom.sf2 "$@"
         dest-filename: gzdoom.sh
-      - type: file
-        path: org.zdoom.GZDoom.desktop
-      - type: file
-        path: org.zdoom.GZDoom.appdata.xml
-      - type: file
-        path: org.zdoom.GZDoom.48.png
-      - type: file
-        path: org.zdoom.GZDoom.64.png
-      - type: file
-        path: org.zdoom.GZDoom.128.png
     build-commands:
       - install -D gzdoom.sh /app/bin/gzdoom.sh
-      - install -Dm 644 org.zdoom.GZDoom.desktop -t /app/share/applications
-      - install -Dm 644 org.zdoom.GZDoom.appdata.xml -t /app/share/metainfo
-      - install -Dm 644 org.zdoom.GZDoom.48.png /app/share/icons/hicolor/48x48/apps/org.zdoom.GZDoom.png
-      - install -Dm 644 org.zdoom.GZDoom.64.png /app/share/icons/hicolor/64x64/apps/org.zdoom.GZDoom.png
-      - install -Dm 644 org.zdoom.GZDoom.128.png /app/share/icons/hicolor/128x128/apps/org.zdoom.GZDoom.png
