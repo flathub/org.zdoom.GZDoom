@@ -50,10 +50,13 @@ modules:
         path: org.zdoom.GZDoom.64.png
       - type: file
         path: org.zdoom.GZDoom.128.png
+      - type: file
+        path: org.zdoom.GZDoom.svg
     build-commands:
       - install -D gzdoom.sh /app/bin/gzdoom.sh
       - install -Dm 644 org.zdoom.GZDoom.desktop -t /app/share/applications
       - install -Dm 644 org.zdoom.GZDoom.appdata.xml -t /app/share/metainfo
+      - install -Dm 644 org.zdoom.GZDoom.svg /app/share/icons/hicolor/scalable/apps/org.zdoom.GZDoom.svg
       - install -Dm 644 org.zdoom.GZDoom.48.png /app/share/icons/hicolor/48x48/apps/org.zdoom.GZDoom.png
       - install -Dm 644 org.zdoom.GZDoom.64.png /app/share/icons/hicolor/64x64/apps/org.zdoom.GZDoom.png
       - install -Dm 644 org.zdoom.GZDoom.128.png /app/share/icons/hicolor/128x128/apps/org.zdoom.GZDoom.png
