@@ -31,15 +31,11 @@ cleanup:
 
 modules:
 
-  - shared-modules/gzdoom/gzdoom.json
-
   - name: launcher
     buildsystem: simple
     sources:
-      - type: script
-        commands:
-          - exec gzdoom +fluid_patchset /app/share/games/doom/soundfonts/gzdoom.sf2 "$@"
-        dest-filename: gzdoom.sh
+      - type: file
+        path: gzdoom.sh
       - type: file
         path: org.zdoom.GZDoom.desktop
       - type: file
